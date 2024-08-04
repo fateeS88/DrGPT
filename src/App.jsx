@@ -1,5 +1,6 @@
-
 import './App.css'
+import Header from './home.jsx'
+import Signup from './form.jsx'
 
 function App() {
   
@@ -7,7 +8,8 @@ function App() {
   return (
 
      <div>
-      <h1> Welcome to MKGL </h1>
+      <Header/>
+      <Signup/>
      </div>
   )
 }
