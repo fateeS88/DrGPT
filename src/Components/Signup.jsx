@@ -20,51 +20,41 @@ return (
 
     <h1> Welcome to MKGL </h1>
     <h2> create an account </h2>
-    <label>
-        Name:
+
         <input
         type= "text"
         value={name}
         onChange={handleInsertName}
-        placeholder="type your name..."
+        placeholder="Full Name"
         pattern="^[A-Z a-z]{3,16}$"
         required/>
-    </label>
 
-    <label>
-        Email:
         <input
         type= "email"
         value={email}
         onChange={handleInsertEmail}
-        placeholder="type your email..."
+        placeholder="Email"
         required/>
-    </label>
 
-    <label>
-        Password:
         <input
         type= "password"
         value={password}
         onChange={handleInsertPassword}
-        placeholder="type your password..."
+        placeholder="Password"
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
         required/>
-    </label>
 
-    <label>
-        Confirm password:
         <input
         type= "password"
         value={confirm}
         onChange={handleInsertConfirm}
-        placeholder="confirm your password..."
+        placeholder="Confirm Password"
         pattern={password}
         required/>
-    </label>
+
 
     <button type='submit'>
-        submit
+        Sign up
     </button>
 
     </div>
