@@ -16,14 +16,13 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav>
+      <nav>
       <ul>
-        <li><Link to="/signin">Sign In</Link></li>
-        <li><Link to="/signup">Sign Up</Link></li>
+        <li style={{ float: "right", borderLeft: "none" }}>
+        <Link to="/"><img src="" alt=""/> Logo </Link> </li>
         <li><Link to="/">Home</Link></li>
-        <li style={{ float: "left", borderRight: "none" }}>
-          <Link to="/"><img src="" alt=""/> Logo </Link>
-        </li>
+        <li><Link to="/signup">Sign Up</Link></li>
+        <li><Link to="/signin">Sign In</Link></li>
       </ul>
     </nav>
   )
