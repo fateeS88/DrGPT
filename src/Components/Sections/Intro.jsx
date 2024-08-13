@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Signup from "../Signup"
 
 export default function Intro () {
     return (
