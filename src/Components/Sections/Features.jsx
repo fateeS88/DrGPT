@@ -6,7 +6,7 @@ const features = [
 
 export default function Features () {
     return (
-        <div>
+        <div className="features">
             <h2> Key Features </h2>
             {features.map((feature, index) => (
                 <div  key={index}> 
