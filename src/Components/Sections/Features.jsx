@@ -1,5 +1,5 @@
 const features = [
-    {title: "Instant Knowledge", description: "Benefit from fast and precise answers to intricate medical questions, enabling more informed decision-making."},
+    {title: "Instant Knowledge", description: "Benefit from fast and precise answers to complex medical questions, enabling better informed decision-making."},
     {title: "Current Insights", description: "Access tailored suggestions grounded in the latest clinical guidelines and research developments."},
     {title: "User Friendly", description: "Engage with a user-friendly interface crafted specifically for the needs of busy medical practitioners."}
 ]
