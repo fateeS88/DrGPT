@@ -16,7 +16,10 @@ export default function Header () {
           <Link to="/" style={{float: "right", borderLeft: "none"}}> <img src="" alt=""/> Logo </Link> 
         </div>
 
-      <ul style={{ display: menuOpen ? 'block' : 'none' }}>
+      <ul className={menuOpen ? 'block' : 'none'}>
+      <button className='close-button' onClick={() => setMenuOpen(false)}>
+          <FiMenu size={24} />
+        </button>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
         <li><Link to="/signin">Sign In</Link></li>

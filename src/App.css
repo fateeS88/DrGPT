@@ -1,4 +1,102 @@
-* { 
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Navigation styling */
+nav {
+  background-color: rgb(50, 70, 170);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* Menu container styling */
+.menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Menu button styling */
+.menu button {
+  background-color: rgb(50, 70, 170);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo styling */
+.menu img {
+  margin-right: auto; /* Pushes logo to the left */
+}
+
+/* Menu list styling */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%; /* Cover half of the screen */
+  height: 100vh;
+  background-color: rgb(50, 70, 170);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); /* Initially off-screen */
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Menu open styling */
+nav ul.block {
+  transform: translateX(0); /* Slide in */
+}
+
+/* Hide menu by default */
+nav ul.none {
+  display: none;
+}
+
+/* Menu item styling */
+nav li {
+  width: 100%;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+}
+
+/* Close button styling inside the menu */
+nav .close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(50, 70, 170);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* * { 
   box-sizing: border-box;
 }
 
@@ -44,7 +142,7 @@ nav li a:hover {background-color: #111; }
   border: "none";
   display: 'flex';
   align-items: 'center';
-}
+} */
 
 
 form {
