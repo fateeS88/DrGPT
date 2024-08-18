@@ -7,11 +7,11 @@ const works = [
 
 export default function How () {
     return (
-        <div>
-            <h2> How it Works </h2>
+        <div className="How">
+            <h3> How it Works </h3>
             {works.map((works, index) => (
                 <div  key={index}> 
-                    <h3>{works.title}</h3>
+                    <h4>{works.title}</h4>
                     <p>{works.description}</p>
                 </div>
             ))}
