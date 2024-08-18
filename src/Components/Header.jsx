@@ -4,7 +4,7 @@ import { FiMenu } from "react-icons/fi";
 
 export default function Header () {
   const [menuOpen, setMenuOpen] = useState (false);
-
+  
   return (
       <nav>
         <div className='menu'>
