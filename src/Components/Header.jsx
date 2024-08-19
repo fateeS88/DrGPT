@@ -13,7 +13,7 @@ export default function Header () {
           onClick={() => setMenuOpen(!menuOpen)}>
          <FiMenu size={24} />
           </button>
-          <Link to="/" style={{float: "right", borderLeft: "none"}}> <img src="" alt=""/> Logo </Link> 
+          <Link to="/"> <img src="" alt=""/> Logo </Link> 
         </div>
 
       <ul className={menuOpen ? 'block' : 'none'}>
