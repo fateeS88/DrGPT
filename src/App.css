@@ -133,6 +133,11 @@ form button:hover {
   background-color: #666;
 }
 
+form p a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
 /* INTRO */
 
 .intro-container {
