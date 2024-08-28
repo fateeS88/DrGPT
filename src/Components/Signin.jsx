@@ -11,17 +11,21 @@ export default function Signin () {
     function handleInsertPassword (e) {setPassword(e.target.value)}
 
     return (
-        <form onSubmit={handleSubmit}> 
-            <div>
-        
+        <div className="signin-container">
+        <form className="signin-form" onSubmit={handleSubmit}> 
+         
             <h2> Sign in </h2>
+            <div className="input-group">
+                <label htmlFor="email">Email</label>
                 <input
                 type= "email"
                 value={email}
                 onChange={handleInsertEmail}
                 placeholder="Email"
                 required/>
-        
+            </div>
+            <div className="input-group">
+                <label htmlFor="password">Password</label>
                 <input
                 type= "password"
                 value={password}
@@ -29,10 +33,16 @@ export default function Signin () {
                 placeholder="Password"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
                 required/> 
-            <button type='submit'>
-                    Sign in
+            </div>
+
+            <button 
+                className="signin-button"
+                type='submit'
+            >
+                        Sign in
             </button>
-                </div> 
-                </form>
+             
+        </form>
+        </div>
                 )
 }

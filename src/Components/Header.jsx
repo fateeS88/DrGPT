@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu } from "react-icons/fi";
-import {CloseIcon} from "@mui/icons-material/Close"
+import { Close } from "@mui/icons-material";
 
 export default function Header () {
   const [menuOpen, setMenuOpen] = useState (false);
@@ -20,7 +20,7 @@ export default function Header () {
           onClick={toggleMenu}
           aria-label="Toggle Menu"
         >
-          {menuOpen ? <CloseIcon /> : <FiMenu />}
+          {menuOpen ? <Close /> : <FiMenu />}
         </button>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <ul>

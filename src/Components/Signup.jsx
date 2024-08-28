@@ -16,45 +16,63 @@ export default function Signup () {
     function handleInsertConfirm (e) {setConfirm(e.target.value)}
 
 return (
-<form onSubmit={handleSubmit}> 
-    <div>
-        <h1> Welcome to MKGL </h1>
-        <h2> create an account </h2>
-            <input
-            type= "text"
-            value={name}
-            onChange={handleInsertName}
-            placeholder="Full Name"
-            pattern="^[A-Z a-z]{3,16}$"
-            required/>
+<div className="signup-container">
+    <form className="signup-form" onSubmit={handleSubmit}> 
+            {/* <h1> Welcome to MKGL </h1> */}
+            <h2> Sign Up </h2>
+                <div className="input-group">
+                    <label htmlFor="name">Full Name</label>
+                    <input
+                    id="name"
+                    type= "text"
+                    value={name}
+                    onChange={handleInsertName}
+                    placeholder="Full Name"
+                    pattern="^[A-Z a-z]{3,16}$"
+                    required/>
+                </div>
+                <div className="input-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                    id="email"
+                    type= "email"
+                    value={email}
+                    onChange={handleInsertEmail}
+                    placeholder="Email"
+                    required/>
+                </div>
+                <div className="input-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                    id="password"
+                    type= "password"
+                    value={password}
+                    onChange={handleInsertPassword}
+                    placeholder="Password"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
+                    required/>
+                </div>
+                <div className="input-group">
+                    <label htmlFor="confirm">Confirm Password</label>
+                    <input
+                    id="password"
+                    type= "password"
+                    value={confirm}
+                    onChange={handleInsertConfirm}
+                    placeholder="Confirm Password"
+                    pattern={password}
+                    required/>
+                </div>
 
-            <input
-            type= "email"
-            value={email}
-            onChange={handleInsertEmail}
-            placeholder="Email"
-            required/>
-
-            <input
-            type= "password"
-            value={password}
-            onChange={handleInsertPassword}
-            placeholder="Password"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
-            required/>
-
-            <input
-            type= "password"
-            value={confirm}
-            onChange={handleInsertConfirm}
-            placeholder="Confirm Password"
-            pattern={password}
-            required/>
-        <button type='submit'>
-            Sign up
-        </button>
-        <p> Already have an account? <Link to="/signin" style={{textDecoration: 'none', }}>Sign in</Link> </p>
-    </div>
-</form>
+            <button className="signup-button" type='submit'>
+                Sign up
+            </button>
+            <p> Already have an account? 
+                <Link to="/signin" className="signin-link">
+                    Sign in
+                </Link> 
+            </p>
+    </form>
+</div>
 )
 }
