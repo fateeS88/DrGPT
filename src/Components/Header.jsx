@@ -25,13 +25,13 @@ export default function Header () {
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <ul>
             <li>
-              <Link to="/"> Home </Link>
+              <Link to="/" onClick={toggleMenu}> Home </Link>
             </li>
             <li>
-              <Link to ="/signup"> Sign Up </Link>
+              <Link to ="/signup" onClick={toggleMenu}> Sign Up </Link>
             </li>
             <li>
-              <Link to ="/signin"> Sign In </Link>
+              <Link to ="/signin" onClick={toggleMenu}> Sign In </Link>
             </li>
           </ul>
         </nav>

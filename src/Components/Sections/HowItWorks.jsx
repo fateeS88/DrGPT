@@ -7,14 +7,16 @@ const works = [
 
 export default function How () {
     return (
-        <div className="How">
+        <div className="how">
             <h3> How it Works </h3>
-            {works.map((works, index) => (
-                <div  key={index}> 
-                    <h4>{works.title}</h4>
-                    <p>{works.description}</p>
+            <div className="how-grid">
+            {works.map((work, index) => (
+                <div  key={index} className="how-item"> 
+                    <h4>{work.title}</h4>
+                    <p>{work.description}</p>
                 </div>
             ))}
+            </div>
         </div>
     )
 }

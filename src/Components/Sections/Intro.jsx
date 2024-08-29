@@ -6,7 +6,7 @@ export default function Intro () {
             <h2> Your Reliable Medical AI Assistant </h2>
             <p> Ask, confirm and care, one question at a time. </p>
             <Link to="/signup">
-            <button>
+            <button className='intro-button'>
                 Get Started
             </button>
             </Link>

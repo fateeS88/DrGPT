@@ -10,17 +10,19 @@ const features = [
 
 export default function Features () {
     return (
-        <div className="features">
+        <div className="feature">
             <h3> Key Features </h3>
-            {features.map((feature, index) => (
-                <div  key={index} className="feature-item"> 
-                 <div className="feature-icon">
-                        {feature.icon}
+            <div className="feature-grid">
+                {features.map((feature, index) => (
+                    <div  key={index} className="feature-item"> 
+                        <div className="feature-icon">
+                            {feature.icon}
+                        </div>
+                        <h4>{feature.title}</h4>
+                        <p>{feature.description}</p>
                     </div>
-                    <h4>{feature.title}</h4>
-                    <p>{feature.description}</p>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     )
 }
