@@ -8,6 +8,32 @@ export default function Signup () {
     const [password, setPassword] = useState("")
     const [confirm, setConfirm] = useState("")
 
+    const sendToBackend = async (email, password, name) => {
+        try {
+            const response = await fetch("http://localhost:8000/signup", {
+               method: "POST", 
+               headers: {
+                "Content-Type": "application/json"
+               },
+               body: JSON.stringify({
+                email: email,
+                password: password,
+                name: name,
+            }),
+                mode: "cors",
+            })
+            if (!response.ok){
+                const errorData = await response.json();
+                throw new Error(errorData.detail || "failed to signup")
+            }
+            const data = await response.json
+            alert("signup successful. backend data stored")
+        } catch(error) {
+            console.error("error signing up with backend", error)
+            alert(error.message)
+        }
+    }
+
     const handleSubmit = (e) => {e.preventDefault();}
 
     function handleInsertName(e) {setName(e.target.value)}
