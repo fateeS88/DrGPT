@@ -20,7 +20,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
     allow_credentials=True,
-    allow_method=["*"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -33,7 +33,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 class User(BaseModel):
     email: EmailStr
     password: str = Field(..., min_length=8, description="password must be at least 8 characters long")
-    full_name: str = Field(..., min_length=2, max_length=50, description="users full name") 
+    name: str = Field(..., min_length=2, max_length=50, description="users name") 
 
     @validator("password")
     def validate_password(cls, v):
@@ -62,7 +62,7 @@ async def sign_up (user: User):
         user_data={
             "email": user.email, 
             "password": hashed_password,
-            "full_name": user.full_name,
+            "name": user.name,
         }
 
         result=  await users_collection.insert_one(user_data)

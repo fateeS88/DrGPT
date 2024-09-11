@@ -1,12 +1,15 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom';
+import {auth} from '../FirebaseConfig'
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup () {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirm, setConfirm] = useState("")
+    // const [confirm, setConfirm] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const sendToBackend = async (email, password, name) => {
         try {
@@ -26,7 +29,7 @@ export default function Signup () {
                 const errorData = await response.json();
                 throw new Error(errorData.detail || "failed to signup")
             }
-            const data = await response.json
+            const data = await response.json()
             alert("signup successful. backend data stored")
         } catch(error) {
             console.error("error signing up with backend", error)
@@ -34,12 +37,21 @@ export default function Signup () {
         }
     }
 
-    const handleSubmit = (e) => {e.preventDefault();}
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            await createUserWithEmailAndPassword(auth, email, password, name)
+            await sendToBackend(email, password, name)
+        } finally {
+            setLoading(false)
+        }
+    }
 
     function handleInsertName(e) {setName(e.target.value)}
     function handleInsertEmail (e) {setEmail(e.target.value)}
     function handleInsertPassword (e) {setPassword(e.target.value)}
-    function handleInsertConfirm (e) {setConfirm(e.target.value)}
+    // function handleInsertConfirm (e) {setConfirm(e.target.value)}
 
 return (
 <div className="signup-container">
@@ -75,10 +87,10 @@ return (
                     value={password}
                     onChange={handleInsertPassword}
                     placeholder="Password"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
+                    // pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$"
                     required/>
                 </div>
-                <div className="input-group">
+                {/* <div className="input-group">
                     <label htmlFor="confirm">Confirm Password</label>
                     <input
                     id="password"
@@ -88,7 +100,7 @@ return (
                     placeholder="Confirm Password"
                     pattern={password}
                     required/>
-                </div>
+                </div> */}
 
             <button className="signup-button" type='submit'>
                 Sign up
