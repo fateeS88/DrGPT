@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = AsyncIOMotorClient(MONGO_DETAILS)
+client = AsyncIOMotorClient(MONGO_DETAILS, tlsAllowInvalidCertificates=True)
 db = client.MKGL
 users_collection = db.get_collection("form")
 
@@ -42,7 +42,7 @@ class User(BaseModel):
         return v 
     
 def get_password_hash(password):
-    return pwd_context.verify(plain_password, hashed_password)
+    return pwd_context.hash(password)
 
 
 @app.options("/signup")
@@ -79,6 +79,33 @@ async def sign_up (user: User):
     except Exception as e:
         print(f"an error occured during user registration: {str(e)}")
         raise HTTPException(status_code=500, detail="an internal server error occured. please try again later")
+
+
+class SignInModel(BaseModel):
+    email: EmailStr
+    password: str = Field(..., min_length=8)
+
+# Utility function to verify passwords
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+# Endpoint to handle user sign-in
+@app.post("/signin", status_code=status.HTTP_200_OK)
+async def sign_in(signin_data: SignInModel):
+    # Find the user in the database by email
+    user = await users_collection.find_one({"email": signin_data.email})
+    
+    # If user is not found, return an error
+    if not user:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+    
+    # Verify the provided password
+    if not verify_password(signin_data.password, user["password"]):
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+
+    # Return success message if authentication is successful 
+    return {"message": "Sign-in successful", "email": signin_data.email, "name": user.get("name")}
+
 
 
 if __name__ == "__main__":
